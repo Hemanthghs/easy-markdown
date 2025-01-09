@@ -1,86 +1,59 @@
-
 import * as React from "react";
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: "light" | "dark";
-  additionalStyles?: React.CSSProperties;
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, theme = "light", additionalStyles, ...props }, ref) => (
-    <div
-      ref={ref}
-      style={additionalStyles}
-      className={`rounded-lg border shadow-sm ${
-        theme === "dark" ? "bg-gray-800 text-white border-gray-700" : "bg-white text-black border-gray-200"
-      } ${className}`}
-      {...props}
-    />
+  ({ className = "", theme = "light", children, ...props }, ref) => (
+    <div ref={ref} className={`card ${theme} ${className}`} {...props}>
+      {children}
+    </div>
   )
 );
 Card.displayName = "Card";
 
-const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & { theme?: "light" | "dark" }>(
-  ({ className, theme = "light", ...props }, ref) => (
-    <div
-      ref={ref}
-      className={`flex flex-col space-y-1.5 p-6 ${
-        theme === "dark" ? "text-white" : "text-black"
-      } ${className}`}
-      {...props}
-    />
+const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className = "", children, ...props }, ref) => (
+    <div ref={ref} className={`card-header ${className}`} {...props}>
+      {children}
+    </div>
   )
 );
 CardHeader.displayName = "CardHeader";
 
-const CardTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement> & { theme?: "light" | "dark" }>(
-  ({ className, theme = "light", ...props }, ref) => (
-    <h3
-      ref={ref}
-      className={`text-lg font-semibold leading-none tracking-tight ${
-        theme === "dark" ? "text-white" : "text-black"
-      } ${className}`}
-      {...props}
-    />
+const CardTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement>>(
+  ({ className = "", children, ...props }, ref) => (
+    <h3 ref={ref} className={`card-title ${className}`} {...props}>
+      {children}
+    </h3>
   )
 );
 CardTitle.displayName = "CardTitle";
 
-const CardDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement> & { theme?: "light" | "dark" }>(
-  ({ className, theme = "light", ...props }, ref) => (
-    <p
-      ref={ref}
-      className={`text-sm ${
-        theme === "dark" ? "text-gray-400" : "text-gray-600"
-      } ${className}`}
-      {...props}
-    />
+const CardDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
+  ({ className = "", children, ...props }, ref) => (
+    <p ref={ref} className={`card-description ${className}`} {...props}>
+      {children}
+    </p>
   )
 );
 CardDescription.displayName = "CardDescription";
 
-const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & { theme?: "light" | "dark" }>(
-  ({ className, theme = "light", ...props }, ref) => (
-    <div
-      ref={ref}
-      className={`p-6 pt-0 ${
-        theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"
-      } ${className}`}
-      {...props}
-    />
+const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className = "", children, ...props }, ref) => (
+    <div ref={ref} className={`card-content ${className}`} {...props}>
+      {children}
+    </div>
   )
 );
 CardContent.displayName = "CardContent";
 
-const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & { theme?: "light" | "dark" }>(
-  ({ className, theme = "light", ...props }, ref) => (
-    <div
-      ref={ref}
-      className={`flex items-center p-6 pt-0 ${
-        theme === "dark" ? "text-white" : "text-black"
-      } ${className}`}
-      {...props}
-    />
+const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className = "", children, ...props }, ref) => (
+    <div ref={ref} className={`card-footer ${className}`} {...props}>
+      {children}
+    </div>
   )
 );
 CardFooter.displayName = "CardFooter";

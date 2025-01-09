@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
 import { MarkdownEditor } from './MarkdownEditor';
 import { MarkdownViewer } from './MarkdownViewer';
-import { MarkdownEditorWithPreviewProps } from '../types';
+
+interface MarkdownEditorWithPreviewProps {
+  initialValue?: string;
+  onChange?: (value: string) => void;
+  height?: string;
+  placeholder?: string;
+  showPreview?: boolean;
+  previewPosition?: 'side' | 'bottom';
+  className?: string;
+  theme?: 'light' | 'dark';
+}
 
 export const MarkdownEditorWithPreview: React.FC<MarkdownEditorWithPreviewProps> = ({
   initialValue = '',
   onChange,
-  height = 'h-64',
+  height = '16rem',
   placeholder,
   showPreview = true,
   previewPosition = 'side',
   className = '',
-  theme = 'light', // Theme support
+  theme = 'light',
 }) => {
   const [markdown, setMarkdown] = useState(initialValue);
 
@@ -21,13 +31,9 @@ export const MarkdownEditorWithPreview: React.FC<MarkdownEditorWithPreviewProps>
   };
 
   return (
-    <div className={`w-full ${className}`}>
-      <div
-        className={`${
-          previewPosition === 'side' ? 'flex flex-wrap gap-4' : 'space-y-4'
-        }`}
-      >
-        <div className={previewPosition === 'side' ? 'w-full md:w-1/2' : 'w-full'}>
+    <div className={`editor-container ${className}`}>
+      <div className={`editor-preview-container ${previewPosition === 'bottom' ? 'vertical' : ''}`}>
+        <div className="editor-section">
           <MarkdownEditor
             initialValue={markdown}
             onChange={handleChange}
@@ -37,8 +43,11 @@ export const MarkdownEditorWithPreview: React.FC<MarkdownEditorWithPreviewProps>
           />
         </div>
         {showPreview && (
-          <div className={previewPosition === 'side' ? 'w-full md:w-1/2' : 'w-full'}>
-            <MarkdownViewer markdown={markdown} theme={theme} />
+          <div className="preview-section">
+            <MarkdownViewer 
+              markdown={markdown} 
+              theme={theme} 
+            />
           </div>
         )}
       </div>
