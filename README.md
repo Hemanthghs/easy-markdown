@@ -1,6 +1,6 @@
-# React Advanced Markdown Viewer
+# Easy Markdown
 
-A feature-rich React component for rendering Markdown with support for advanced formatting, math expressions, automatic numbering, and nested elements.
+A React component for rendering Markdown with Markdown Editor and Viewer
 
 ## Features
 
