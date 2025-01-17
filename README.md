@@ -148,78 +148,7 @@ const example = "syntax highlighting";
 | theme | 'light' \| 'dark' | 'light' | Theme for the viewer |
 | className | string | '' | Additional CSS classes |
 
-## Contributing
 
-We welcome contributions! Here's how you can help:
-
-### Development Setup
-
-1. Fork the repository
-```bash
-# Clone your fork
-git clone https://github.com/YOUR_USERNAME/react-advanced-markdown.git
-
-# Navigate to project
-cd react-advanced-markdown
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-2. Create a new branch:
-```bash
-git checkout -b feature/your-feature-name
-```
-
-### Development Guidelines
-
-1. Code Style
-- Use TypeScript for new code
-- Follow existing code formatting
-- Use meaningful variable/function names
-- Add comments for complex logic
-- Write unit tests for new features
-
-2. Commits
-- Use semantic commit messages:
-  - feat: New feature
-  - fix: Bug fix
-  - docs: Documentation
-  - style: Formatting
-  - refactor: Code restructuring
-  - test: Tests
-  - chore: Maintenance
-
-3. Testing
-```bash
-# Run tests
-npm test
-
-# Run linter
-npm run lint
-```
-
-### Pull Request Process
-
-1. Update documentation for new features
-2. Add tests for new functionality
-3. Ensure all tests pass
-4. Update CHANGELOG.md
-5. Submit PR with detailed description
-6. Address review comments
-
-### Issue Reporting
-
-1. Check existing issues
-2. Use issue template
-3. Include:
-   - Steps to reproduce
-   - Expected behavior
-   - Actual behavior
-   - Environment details
 
 ## Dependencies
 
@@ -236,13 +165,7 @@ npm run lint
 ## Scripts
 
 ```bash
-npm run dev        # Start development server
+npm run dev        # Start development
 npm run build      # Build for production
-npm test          # Run tests
-npm run lint      # Run linter
-npm run format    # Format code
 ```
 
-## License
-
-MIT
